@@ -22,6 +22,7 @@ import server.exceptions.UserAlreadyExistsException;
 import server.security.jwt.JwtFilter;
 import server.security.jwt.TokenProvider;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class AuthenticationController {

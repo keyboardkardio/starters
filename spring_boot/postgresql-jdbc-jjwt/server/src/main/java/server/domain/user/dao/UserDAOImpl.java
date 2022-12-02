@@ -69,8 +69,12 @@ public class UserDAOImpl implements UserDAO {
         String query = "insert into users (username, password_hash, role) values (?, ?, ?);";
 
         String password_hash = new BCryptPasswordEncoder().encode(password);
-        String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
+        // String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 
+        /* New users will be assigned a default role of `USER`. Uncomment the
+          line above if the user will be presented with the option to choose
+          their role. */
+        role = "USER";
         return jdbcTemplate.update(query, username, password_hash, role) == 1;
     }
 }

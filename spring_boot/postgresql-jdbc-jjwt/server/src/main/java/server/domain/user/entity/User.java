@@ -18,6 +18,7 @@ public class User {
     @JsonIgnore
     private Boolean activated;
 
+    @JsonIgnore
     private Set<Authority> authorities = new HashSet<>();
 
     public User() {
